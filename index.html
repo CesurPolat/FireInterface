@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getAccount ()">Connect via FireWallet</button>
+    <h3>Account: </h3>
+    <script>
+        function getAccount(){
+            requestAccounts().then((resp)=>{
+                document.getElementsByTagName("h3")[0].innerText="Account: "+resp;
+            });
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
