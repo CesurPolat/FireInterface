@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "CesurPolat",
+  "repository": "https://github.com/CesurPolat/FireWallet",
   "license": "ISC"
 }

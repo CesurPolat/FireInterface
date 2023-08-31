@@ -1,4 +1,6 @@
+"use strict";
 function requestAccounts() {
+    var webSocket;
     return new Promise((resolve, reject) => {
         webSocket = new WebSocket("ws://localhost:5418");
         webSocket.onerror = function (error) {
@@ -13,3 +15,5 @@ function requestAccounts() {
         };
     })
 }
+
+module.exports = {requestAccounts}
