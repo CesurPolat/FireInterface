@@ -25,4 +25,4 @@ function sendTransaction(obj) {
   });
 }
 
-//module.exports = { requestAccounts, sendTransaction };
+module.exports = { requestAccounts, sendTransaction };
