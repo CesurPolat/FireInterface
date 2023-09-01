@@ -8,5 +8,8 @@
   },
   "author": "CesurPolat",
   "repository": "https://github.com/CesurPolat/FireWallet",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.7.2"
+  }
 }
