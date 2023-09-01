@@ -1,8 +1,6 @@
 "use strict";
-import { ethers } from "ethers";
 
-var webSocket;
-webSocket = new WebSocket("ws://localhost:5418");
+var webSocket= new WebSocket("ws://localhost:5418");;
 webSocket.onerror = function (error) {
   window.open("firewallet://");
   reject("Err");
@@ -13,9 +11,7 @@ function requestAccounts() {
     webSocket.onmessage = async (event) => {
       resolve(await new Response(event.data).text());
     };
-    webSocket.onopen = (event) => {
-      webSocket.send('{"method":"requestAccounts"}');
-    };
+    webSocket.send('{"method":"requestAccounts"}');
   });
 }
 
@@ -25,10 +21,8 @@ function sendTransaction(obj) {
         console.log(event.data);
         resolve(await new Response(event.data).text());
       };
-      webSocket.onopen = (event) => {
-        webSocket.send(obj);
-      };
+      webSocket.send(obj);
   });
 }
 
-module.exports = { requestAccounts, sendTransaction, ethers };
+module.exports = { requestAccounts, sendTransaction };
