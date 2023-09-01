@@ -3,7 +3,7 @@
 var webSocket= new WebSocket("ws://localhost:5418");;
 webSocket.onerror = function (error) {
   window.open("firewallet://");
-  reject("Err");
+  //reject("Err");
 };
 
 function requestAccounts() {
@@ -21,8 +21,8 @@ function sendTransaction(obj) {
         console.log(event.data);
         resolve(await new Response(event.data).text());
       };
-      webSocket.send(obj);
+      webSocket.send(JSON.stringify(obj));
   });
 }
 
-module.exports = { requestAccounts, sendTransaction };
+//module.exports = { requestAccounts, sendTransaction };
