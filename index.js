@@ -16,9 +16,15 @@ function requestAccounts() {
 }
 
 function sendTransaction(obj) {
+  if(window?.API?.AppInfo()!=undefined){
+    obj.name=window.API.AppInfo()
+  }else if(window.location.origin!=undefined){
+    obj.name=window.location.origin
+  }else{
+    obj.name="Unknown App"
+  }
   return new Promise((resolve, reject) => {
     webSocket.onmessage = async (event) => {
-        console.log(event.data);
         resolve(await new Response(event.data).text());
       };
       webSocket.send(JSON.stringify(obj));
